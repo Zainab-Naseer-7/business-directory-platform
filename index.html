@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXORA — Premier Business Directory & Discovery Platform</title>
+  <meta name="description" content="Discover verified local restaurants, shops, technology firms, healthcare, and professional services on Nexora Business Directory. Search, compare, and connect with trusted enterprises.">
+  <meta name="keywords" content="business directory, local services, verified companies, restaurants, tech startups, healthcare, Peshawar, Islamabad, Dubai, business reviews, company listings">
+  <meta name="author" content="Nexora Directory Platform">
+  <meta property="og:title" content="NEXORA — Discover Local. Connect Better. Grow Together.">
+  <meta property="og:description" content="The premier commercial discovery platform connecting consumers and verified business enterprises.">
+  <meta property="og:type" content="website">
+
+  <!-- Font Preconnect & Fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Direct Root CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ANNOUNCEMENT / TOP TICKER -->
+  <div class="top-announcement" id="topAnnouncement">
+    <div class="announcement-content">
+      <span class="announcement-tag">NEW</span>
+      <span class="announcement-text">Explore over 1,500+ newly verified enterprise listings & exclusive seasonal offers across premier hubs!</span>
+    </div>
+    <div class="announcement-actions">
+      <span class="location-pill" id="currentLocationBadge">
+        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span id="headerCityLabel">Peshawar, PK</span>
+      </span>
+      <button class="announcement-close" id="closeAnnouncementBtn" aria-label="Close Announcement">&times;</button>
+    </div>
+  </div>
+
+  <!-- MAIN HEADER / NAVBAR -->
+  <header class="site-header" id="mainHeader">
+    <div class="header-container">
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" id="brandLogoLink">
+        <div class="logo-symbol">
+          <div class="symbol-inner">
+            <span>N</span>
+          </div>
+        </div>
+        <div class="logo-text-group">
+          <span class="brand-title">NEXORA</span>
+          <span class="brand-tagline">DIRECTORY</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active" data-nav="hero">Home</a></li>
+          <li><a href="#explore" class="nav-link" data-nav="explore">Explore</a></li>
+          <li><a href="#categories" class="nav-link" data-nav="categories">Categories</a></li>
+          <li><a href="#locations" class="nav-link" data-nav="locations">Locations</a></li>
+          <li><a href="#deals" class="nav-link" data-nav="deals">Deals & Offers</a></li>
+          <li><a href="#map-discovery" class="nav-link" data-nav="map">Live Map</a></li>
+          <li><a href="#dashboard" class="nav-link" data-nav="dashboard">Dashboard</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Utilities & Actions -->
+      <div class="header-actions">
+        <!-- Global Search Palette Trigger -->
+        <button class="icon-action-btn search-trigger" id="globalSearchBtn" title="Global Search (Ctrl + K)" aria-label="Global Search">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span class="kbd-hint">⌘K</span>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light) -->
+        <button class="icon-action-btn theme-toggle" id="themeToggleBtn" title="Toggle Theme" aria-label="Toggle Color Theme">
+          <svg class="icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+        </button>
+
+        <!-- Notification Trigger -->
+        <div class="popover-wrapper">
+          <button class="icon-action-btn" id="notifTriggerBtn" title="Notifications" aria-label="Notifications">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+            <span class="badge-dot" id="notifBadge">3</span>
+          </button>
+          <!-- Notification Dropdown Menu -->
+          <div class="popover-dropdown notification-dropdown" id="notificationDropdown">
+            <div class="popover-header">
+              <h4>Notifications</h4>
+              <button class="text-btn-xs" id="markAllReadBtn">Mark all read</button>
+            </div>
+            <div class="notification-list" id="notificationList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Saved / Favorites Quick Drawer Trigger -->
+        <button class="icon-action-btn" id="favoritesDrawerBtn" title="My Saved Businesses" aria-label="Favorites">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span class="badge-count" id="favoritesCountBadge">0</span>
+        </button>
+
+        <!-- Messages Drawer Trigger -->
+        <button class="icon-action-btn" id="messagesDrawerBtn" title="Messages & Inquiries" aria-label="Messages">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span class="badge-count" id="messagesCountBadge">2</span>
+        </button>
+
+        <!-- Add Business Button -->
+        <button class="btn btn-gold btn-sm" id="headerAddBusinessBtn">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>Add Business</span>
+        </button>
+
+        <!-- User Profile Dropdown / Login -->
+        <div class="user-auth-slot" id="userAuthSlot">
+          <!-- Populated by JS: Login Button or User Avatar Button -->
+          <button class="btn btn-outline btn-sm" id="authLoginBtn">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Sign In</span>
+          </button>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button class="hamburger-btn" id="mobileMenuToggle" aria-label="Toggle Mobile Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <div class="logo-symbol small"><span>N</span></div>
+        <div class="logo-text-group">
+          <span class="brand-title">NEXORA</span>
+          <span class="brand-tagline">DIRECTORY</span>
+        </div>
+      </div>
+      <button class="drawer-close-btn" id="closeMobileDrawerBtn">&times;</button>
+    </div>
+    <div class="mobile-drawer-body">
+      <div class="mobile-user-card" id="mobileUserCard">
+        <!-- Injected via script -->
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#hero" class="mobile-link active" data-nav="hero">Home Discovery</a></li>
+        <li><a href="#explore" class="mobile-link" data-nav="explore">Explore All Listings</a></li>
+        <li><a href="#categories" class="mobile-link" data-nav="categories">Industry Categories</a></li>
+        <li><a href="#locations" class="mobile-link" data-nav="locations">Premier Hubs</a></li>
+        <li><a href="#deals" class="mobile-link" data-nav="deals">Exclusive Deals & Offers</a></li>
+        <li><a href="#map-discovery" class="mobile-link" data-nav="map">Interactive Live Map</a></li>
+        <li><a href="#dashboard" class="mobile-link" data-nav="dashboard">Analytics & Dashboard</a></li>
+      </ul>
+      <div class="mobile-drawer-actions">
+        <button class="btn btn-gold btn-block" id="mobileAddBusinessBtn">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          <span>List Your Enterprise</span>
+        </button>
+        <button class="btn btn-outline btn-block" id="mobileFavoritesBtn">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <span>Saved Favorites (<span id="mobileFavCount">0</span>)</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN VIEWPORT CONTAINER -->
+  <main class="main-content" id="mainContent">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop-glow"></div>
+      <div class="hero-grid-pattern"></div>
+      
+      <div class="section-container hero-container">
+        <div class="hero-badge-wrap">
+          <span class="hero-badge">
+            <span class="badge-sparkle">★</span>
+            Pakistan & Global Business Discovery
+          </span>
+        </div>
+
+        <h1 class="hero-headline">
+          Discover the Best <span class="gradient-text">Businesses Around You</span>
+        </h1>
+        <p class="hero-subtext">
+          Find trusted restaurants, shops, services, professionals, and local enterprises — all verified and curated in one place.
+        </p>
+
+        <!-- LARGE SEARCH CONSOLE -->
+        <div class="hero-search-box" id="heroSearchBox">
+          <div class="search-field-group">
+            <div class="field-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </div>
+            <div class="field-inputs">
+              <label for="heroKeywordInput" class="field-label">What are you looking for?</label>
+              <input type="text" id="heroKeywordInput" class="field-input" placeholder="e.g. Fine Dining, Software House, Clinic, Solar..." autocomplete="off">
+            </div>
+          </div>
+
+          <div class="search-divider"></div>
+
+          <div class="search-field-group">
+            <div class="field-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div class="field-inputs">
+              <label for="heroLocationSelect" class="field-label">Location / City</label>
+              <select id="heroLocationSelect" class="field-select">
+                <option value="All">All Locations</option>
+                <option value="Peshawar" selected>Peshawar (University Rd, Hayatabad, Saddar)</option>
+                <option value="Islamabad">Islamabad (Blue Area, F-7, I-8)</option>
+                <option value="Lahore">Lahore (Gulberg, DHA, MM Alam)</option>
+                <option value="Karachi">Karachi (Clifton, DHA, Shahrah-e-Faisal)</option>
+                <option value="Dubai">Dubai (Downtown, Marina, DIFC)</option>
+                <option value="London">London (City, Mayfair, Canary Wharf)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="search-divider"></div>
+
+          <div class="search-field-group">
+            <div class="field-icon">
+              <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            </div>
+            <div class="field-inputs">
+              <label for="heroCategorySelect" class="field-label">Industry Category</label>
+              <select id="heroCategorySelect" class="field-select">
+                <option value="All">All Categories</option>
+                <option value="Restaurants">Restaurants & Cafes</option>
+                <option value="Hotels">Hotels & Hospitality</option>
+                <option value="Shopping">Shopping & Retail</option>
+                <option value="Healthcare">Healthcare & Clinics</option>
+                <option value="Education">Education & Academies</option>
+                <option value="Technology">Technology & Software</option>
+                <option value="Automotive">Automotive & Services</option>
+                <option value="Real Estate">Real Estate & Property</option>
+                <option value="Beauty & Wellness">Beauty & Wellness</option>
+                <option value="Professional Services">Professional Services</option>
+                <option value="Home Services">Home Services & Solar</option>
+                <option value="Finance">Finance & Banking</option>
+              </select>
+            </div>
+          </div>
+
+          <button class="btn btn-gold btn-hero-search" id="heroSearchSubmitBtn">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Search Directory</span>
+          </button>
+        </div>
+
+        <!-- QUICK CATEGORY PILLS -->
+        <div class="hero-quick-categories">
+          <span class="quick-label">Trending Searches:</span>
+          <div class="quick-tags-scroller" id="heroQuickTags">
+            <button class="quick-tag" data-category="Restaurants">☕ Restaurants</button>
+            <button class="quick-tag" data-category="Technology">💻 Tech & Software</button>
+            <button class="quick-tag" data-category="Healthcare">🏥 Healthcare</button>
+            <button class="quick-tag" data-category="Hotels">🏨 Hotels</button>
+            <button class="quick-tag" data-category="Shopping">🛍️ Shopping</button>
+            <button class="quick-tag" data-category="Home Services">⚡ Home Services</button>
+            <button class="quick-tag" data-category="Professional Services">⚖️ Legal & Finance</button>
+            <button class="quick-tag" data-category="Automotive">🚗 Automotive</button>
+          </div>
+        </div>
+
+        <!-- TRUST STATS COUNTER -->
+        <div class="hero-stats-bar">
+          <div class="stat-item">
+            <span class="stat-number">1,450+</span>
+            <span class="stat-label">Verified Listings</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">99.2%</span>
+            <span class="stat-label">Verified Accuracy</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">48+</span>
+            <span class="stat-label">Metro Hubs</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-number">120K+</span>
+            <span class="stat-label">Monthly Searches</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="section categories-section" id="categories">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">Industries</div>
+          <h2 class="section-title">Explore by Category</h2>
+          <p class="section-subtitle">Browse trusted businesses organized by specialized trade and sector</p>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Injected via JavaScript (16 rich interactive category cards) -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPLORE & DIRECTORY SECTION -->
+    <section class="section explore-section" id="explore">
+      <div class="section-container">
+        <div class="section-header flex-between">
+          <div>
+            <div class="section-badge">Live Directory</div>
+            <h2 class="section-title">Explore Verified Businesses</h2>
+            <p class="section-subtitle">Filter by city, rating, price, verified credentials, and real-time open status</p>
+          </div>
+
+          <!-- Comparison Bar Launcher -->
+          <div class="compare-launcher" id="compareLauncher" style="display: none;">
+            <button class="btn btn-gold btn-sm" id="openCompareModalBtn">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              <span>Compare Businesses (<span id="compareSelectedCount">0</span>)</span>
+            </button>
+            <button class="btn btn-ghost btn-sm" id="clearCompareBtn" title="Clear comparison">&times;</button>
+          </div>
+        </div>
+
+        <!-- EXPLORE MAIN LAYOUT -->
+        <div class="explore-layout">
+          <!-- LEFT FILTERS PANEL -->
+          <aside class="filters-sidebar" id="filtersSidebar">
+            <div class="sidebar-header">
+              <div class="sidebar-title-group">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                <h3>Refine Search</h3>
+              </div>
+              <button class="reset-filters-btn" id="resetAllFiltersBtn">Reset All</button>
+            </div>
+
+            <!-- Filter Group: Keyword -->
+            <div class="filter-group">
+              <label class="filter-label" for="filterKeyword">Search Keywords</label>
+              <div class="input-with-icon">
+                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="filterKeyword" class="filter-text-input" placeholder="Name, service, product...">
+              </div>
+            </div>
+
+            <!-- Filter Group: Category -->
+            <div class="filter-group">
+              <label class="filter-label" for="filterCategory">Category</label>
+              <select id="filterCategory" class="filter-select">
+                <option value="All">All Categories</option>
+                <option value="Restaurants">Restaurants & Dining</option>
+                <option value="Hotels">Hotels & Stays</option>
+                <option value="Shopping">Shopping & Fashion</option>
+                <option value="Healthcare">Healthcare & Clinics</option>
+                <option value="Education">Education & Schools</option>
+                <option value="Technology">Technology & IT</option>
+                <option value="Automotive">Automotive</option>
+                <option value="Real Estate">Real Estate</option>
+                <option value="Beauty & Wellness">Beauty & Wellness</option>
+                <option value="Professional Services">Professional & Legal</option>
+                <option value="Home Services">Home Services & Solar</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Finance">Finance & Banking</option>
+                <option value="Fitness">Fitness & Gyms</option>
+                <option value="Local Services">Local Services</option>
+              </select>
+            </div>
+
+            <!-- Filter Group: Location -->
+            <div class="filter-group">
+              <label class="filter-label" for="filterLocation">Location</label>
+              <select id="filterLocation" class="filter-select">
+                <option value="All">All Locations</option>
+                <option value="Peshawar">Peshawar</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Dubai">Dubai</option>
+                <option value="London">London</option>
+              </select>
+            </div>
+
+            <!-- Filter Group: Minimum Rating -->
+            <div class="filter-group">
+              <label class="filter-label">Minimum Rating</label>
+              <div class="rating-filter-pills" id="ratingPillsGroup">
+                <button class="rating-pill active" data-rating="0">Any</button>
+                <button class="rating-pill" data-rating="4.0">4.0+ ★</button>
+                <button class="rating-pill" data-rating="4.5">4.5+ ★</button>
+                <button class="rating-pill" data-rating="4.8">4.8+ ★</button>
+              </div>
+            </div>
+
+            <!-- Filter Group: Price Tier -->
+            <div class="filter-group">
+              <label class="filter-label">Price Level</label>
+              <div class="price-filter-group" id="pricePillsGroup">
+                <button class="price-pill active" data-price="All">All</button>
+                <button class="price-pill" data-price="$" title="Budget Friendly">$</button>
+                <button class="price-pill" data-price="$$" title="Moderate">$$</button>
+                <button class="price-pill" data-price="$$$" title="Upscale">$$$</button>
+                <button class="price-pill" data-price="$$$$" title="Luxury">$$$$</button>
+              </div>
+            </div>
+
+            <!-- Filter Group: Verified & Status Toggles -->
+            <div class="filter-group">
+              <label class="filter-label">Listing Attributes</label>
+              <div class="toggle-list">
+                <label class="switch-item">
+                  <input type="checkbox" id="filterOpenNow">
+                  <span class="slider-toggle"></span>
+                  <span class="toggle-text">Open Now Only</span>
+                </label>
+                <label class="switch-item">
+                  <input type="checkbox" id="filterVerifiedOnly">
+                  <span class="slider-toggle"></span>
+                  <span class="toggle-text">Verified Badge Only</span>
+                </label>
+                <label class="switch-item">
+                  <input type="checkbox" id="filterHasOffers">
+                  <span class="slider-toggle"></span>
+                  <span class="toggle-text">Special Deals & Offers</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Filter Group: Distance Radius -->
+            <div class="filter-group">
+              <div class="flex-between">
+                <label class="filter-label" for="filterDistance">Distance Radius</label>
+                <span class="range-val" id="distanceValDisplay">25 km</span>
+              </div>
+              <input type="range" id="filterDistance" min="1" max="50" value="25" class="custom-range">
+            </div>
+
+            <button class="btn btn-gold btn-block apply-mobile-filters-btn" id="applyMobileFiltersBtn">
+              Show Results
+            </button>
+          </aside>
+
+          <!-- RIGHT LISTINGS CONTENT -->
+          <div class="listings-content">
+            <!-- Results Bar & Controls -->
+            <div class="results-controls-bar">
+              <div class="results-meta">
+                <span class="results-count-text" id="resultsCountText">Showing <strong>0</strong> Businesses</span>
+                <div class="active-filter-chips" id="activeFilterChips">
+                  <!-- Injected active filter pills -->
+                </div>
+              </div>
+
+              <div class="results-actions">
+                <!-- Mobile Filter Trigger -->
+                <button class="btn btn-outline btn-sm mobile-filter-open-btn" id="mobileFilterToggleBtn">
+                  <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg>
+                  <span>Filters</span>
+                </button>
+
+                <!-- Sort Dropdown -->
+                <div class="sort-selector-group">
+                  <label for="sortBySelect" class="sort-label">Sort by:</label>
+                  <select id="sortBySelect" class="sort-select">
+                    <option value="recommended">Recommended</option>
+                    <option value="highest-rated">Highest Rated</option>
+                    <option value="most-reviewed">Most Reviewed</option>
+                    <option value="newest">Newest Added</option>
+                    <option value="price-asc">Price: Low to High</option>
+                  </select>
+                </div>
+
+                <!-- Grid / List Switcher -->
+                <div class="view-mode-toggle" id="viewModeToggle">
+                  <button class="view-btn active" data-view="grid" title="Grid Layout" aria-label="Grid View">
+                    <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                  </button>
+                  <button class="view-btn" data-view="list" title="List Layout" aria-label="List View">
+                    <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- BUSINESS CARDS CONTAINER -->
+            <div class="business-cards-grid grid-mode" id="businessCardsGrid">
+              <!-- Dynamically populated cards -->
+            </div>
+
+            <!-- EMPTY STATE (Hidden by default) -->
+            <div class="empty-state-card" id="emptyStateCard" style="display: none;">
+              <div class="empty-state-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+              </div>
+              <h3>No Businesses Found</h3>
+              <p>We couldn't find any enterprise matching your search criteria. Try modifying your keywords, location, or clearing active filters.</p>
+              <div class="empty-actions">
+                <button class="btn btn-gold" id="emptyClearFiltersBtn">Clear All Filters</button>
+                <button class="btn btn-outline" id="emptySubmitListingBtn">Add New Business</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE MAP & RADAR DISCOVERY SECTION -->
+    <section class="section map-section" id="map-discovery">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">Geographic Radar</div>
+          <h2 class="section-title">Interactive Location Radar</h2>
+          <p class="section-subtitle">Real-time visual map pins for quick neighborhood exploration and spatial proximity</p>
+        </div>
+
+        <div class="interactive-map-panel">
+          <div class="map-controls-bar">
+            <div class="map-city-picker" id="mapCityTabs">
+              <button class="map-city-tab active" data-mapcity="Peshawar">Peshawar</button>
+              <button class="map-city-tab" data-mapcity="Islamabad">Islamabad</button>
+              <button class="map-city-tab" data-mapcity="Lahore">Lahore</button>
+              <button class="map-city-tab" data-mapcity="Karachi">Karachi</button>
+              <button class="map-city-tab" data-mapcity="Dubai">Dubai</button>
+            </div>
+            <div class="map-legend">
+              <span class="legend-item"><span class="legend-dot dining"></span> Dining</span>
+              <span class="legend-item"><span class="legend-dot tech"></span> Tech</span>
+              <span class="legend-item"><span class="legend-dot health"></span> Health</span>
+              <span class="legend-item"><span class="legend-dot services"></span> Services</span>
+            </div>
+          </div>
+
+          <div class="map-canvas-wrapper" id="mapCanvasWrapper">
+            <!-- Stylized lightweight SVG / Interactive Radar Canvas -->
+            <div class="radar-grid-bg">
+              <div class="radar-circle circle-1"></div>
+              <div class="radar-circle circle-2"></div>
+              <div class="radar-circle circle-3"></div>
+              <div class="radar-crosshair-x"></div>
+              <div class="radar-crosshair-y"></div>
+              <div class="radar-sweep"></div>
+            </div>
+
+            <!-- Interactive Pin Points Container -->
+            <div class="map-pins-container" id="mapPinsContainer">
+              <!-- Rendered pins based on businesses -->
+            </div>
+
+            <!-- Active Map Card Preview Popover -->
+            <div class="map-pin-popover" id="mapPinPopover" style="display: none;">
+              <!-- Populated dynamically upon clicking pin -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PREMIER LOCATIONS EXPLORER -->
+    <section class="section locations-section" id="locations">
+      <div class="section-container">
+        <div class="section-header">
+          <div class="section-badge">Metropolitan Hubs</div>
+          <h2 class="section-title">Explore by Location</h2>
+          <p class="section-subtitle">Find high-performing enterprises situated across leading business centers</p>
+        </div>
+
+        <div class="locations-grid" id="locationsGrid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- EXCLUSIVE DEALS & OFFERS -->
+    <section class="section deals-section" id="deals">
+      <div class="section-container">
+        <div class="section-header flex-between">
+          <div>
+            <div class="section-badge">Exclusive Promotions</div>
+            <h2 class="section-title">Deals & Coupons</h2>
+            <p class="section-subtitle">Special member discounts, seasonal promotions, and introductory vouchers</p>
+          </div>
+          <button class="btn btn-outline btn-sm" id="dealCreateOfferBtn">
+            <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Post an Offer</span>
+          </button>
+        </div>
+
+        <div class="deals-grid" id="dealsGrid">
+          <!-- Injected via JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- BUSINESS OWNER & USER DASHBOARD -->
+    <section class="section dashboard-section" id="dashboard">
+      <div class="section-container">
+        <div class="dashboard-header-bar">
+          <div>
+            <div class="section-badge">Platform Management</div>
+            <h2 class="section-title">Directory Intelligence Dashboard</h2>
+            <p class="section-subtitle">Seamlessly switch between Business Owner analytics and User Member preferences</p>
+          </div>
+
+          <!-- Dual Dashboard Mode Switcher -->
+          <div class="dashboard-mode-switcher">
+            <button class="dash-mode-btn active" id="btnModeOwner" data-mode="owner">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              <span>Business Owner</span>
+            </button>
+            <button class="dash-mode-btn" id="btnModeUser" data-mode="user">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              <span>Member Portal</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- DASHBOARD CONTAINER: OWNER VIEW -->
+        <div class="dashboard-view-wrapper" id="ownerDashboardView">
+          <!-- KPI Metrics Row -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Profile Impressions</span>
+                <span class="kpi-badge positive">+18.4%</span>
+              </div>
+              <div class="kpi-number" id="kpiViewsVal">12,840</div>
+              <div class="kpi-subtext">Across search & category pages</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Phone Inquiries</span>
+                <span class="kpi-badge positive">+12.8%</span>
+              </div>
+              <div class="kpi-number" id="kpiCallsVal">1,284</div>
+              <div class="kpi-subtext">Direct dial clicks this month</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Direction Requests</span>
+                <span class="kpi-badge positive">+7.2%</span>
+              </div>
+              <div class="kpi-number" id="kpiDirectionsVal">892</div>
+              <div class="kpi-subtext">Navigation route lookups</div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-header">
+                <span class="kpi-title">Website Clicks</span>
+                <span class="kpi-badge positive">+22.1%</span>
+              </div>
+              <div class="kpi-number" id="kpiWebsiteVal">3,410</div>
+              <div class="kpi-subtext">Outbound referral visits</div>
+            </div>
+
+            <div class="kpi-card gold-border">
+              <div class="kpi-header">
+                <span class="kpi-title">Reputation Score</span>
+                <span class="kpi-badge gold">Verified 4.9 ★</span>
+              </div>
+              <div class="kpi-number" id="kpiRatingVal">4.9 / 5.0</div>
+              <div class="kpi-subtext">Based on 148 verified customer reviews</div>
+            </div>
+          </div>
+
+          <!-- ANALYTICS CHART SECTION -->
+          <div class="analytics-card">
+            <div class="chart-header flex-between">
+              <div>
+                <h3 class="chart-title">Growth & Engagement Performance</h3>
+                <p class="chart-subtitle">Customer interactions, search visibility, and inquiry conversions</p>
+              </div>
+              <div class="chart-controls">
+                <div class="metric-toggles">
+                  <button class="metric-btn active" data-metric="views">Views</button>
+                  <button class="metric-btn" data-metric="calls">Inquiries</button>
+                  <button class="metric-btn" data-metric="clicks">Web Traffic</button>
+                </div>
+                <div class="time-range-picker" id="chartTimeRange">
+                  <button class="time-btn" data-range="7d">7D</button>
+                  <button class="time-btn active" data-range="30d">30D</button>
+                  <button class="time-btn" data-range="3m">3M</button>
+                  <button class="time-btn" data-range="1y">1Y</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- HTML5 Interactive Performance Canvas -->
+            <div class="canvas-container">
+              <canvas id="analyticsChartCanvas" width="900" height="280"></canvas>
+            </div>
+          </div>
+
+          <!-- OWNER MANAGEMENT SPLIT: MY LISTINGS & LEADS -->
+          <div class="owner-split-grid">
+            <!-- Left: Managed Listings -->
+            <div class="dash-panel">
+              <div class="panel-header flex-between">
+                <h4>My Business Listings</h4>
+                <button class="btn btn-gold btn-xs" id="dashAddListingBtn">+ Add Listing</button>
+              </div>
+              <div class="my-listings-list" id="dashMyListingsList">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Right: Direct Inquiries & Leads -->
+            <div class="dash-panel">
+              <div class="panel-header flex-between">
+                <h4>Recent Customer Leads</h4>
+                <span class="pill-gold">Live Inquiries</span>
+              </div>
+              <div class="dash-leads-list" id="dashLeadsList">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DASHBOARD CONTAINER: USER MEMBER VIEW -->
+        <div class="dashboard-view-wrapper" id="userDashboardView" style="display: none;">
+          <div class="user-dash-tabs">
+            <button class="user-tab-btn active" data-usertab="favorites">Saved Favorites (<span id="userDashFavCount">0</span>)</button>
+            <button class="user-tab-btn" data-usertab="reviews">My Written Reviews (<span id="userDashRevCount">0</span>)</button>
+            <button class="user-tab-btn" data-usertab="history">Recently Viewed</button>
+            <button class="user-tab-btn" data-usertab="savedDeals">Claimed Offers</button>
+          </div>
+
+          <div class="user-tab-pane active" id="userTabFavorites">
+            <div class="dash-fav-grid" id="dashFavoritesGrid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="user-tab-pane" id="userTabReviews" style="display: none;">
+            <div class="dash-reviews-list" id="dashReviewsList">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="user-tab-pane" id="userTabHistory" style="display: none;">
+            <div class="history-controls flex-between">
+              <p class="text-muted">Businesses you recently browsed on this device.</p>
+              <button class="btn btn-outline btn-xs" id="clearHistoryBtn">Clear History</button>
+            </div>
+            <div class="dash-history-grid" id="dashHistoryGrid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <div class="user-tab-pane" id="userTabSavedDeals" style="display: none;">
+            <div class="saved-deals-grid" id="dashSavedDealsGrid">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="section-container footer-container">
+      <div class="footer-top-grid">
+        <div class="footer-brand-col">
+          <div class="brand-logo">
+            <div class="logo-symbol"><span>N</span></div>
+            <div class="logo-text-group">
+              <span class="brand-title">NEXORA</span>
+              <span class="brand-tagline">DIRECTORY</span>
+            </div>
+          </div>
+          <p class="footer-desc">
+            Discover Local. Connect Better. Grow Together. Nexora is the premier business discovery directory designed to help customers find verified companies and help enterprises scale.
+          </p>
+          <div class="footer-socials">
+            <a href="javascript:void(0)" class="social-icon-link" title="LinkedIn"><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></a>
+            <a href="javascript:void(0)" class="social-icon-link" title="Twitter / X"><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="javascript:void(0)" class="social-icon-link" title="Facebook"><svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-links-col">
+          <h5>Platform</h5>
+          <ul>
+            <li><a href="#explore">Explore Listings</a></li>
+            <li><a href="#categories">All Categories</a></li>
+            <li><a href="#locations">Featured Hubs</a></li>
+            <li><a href="#deals">Exclusive Deals</a></li>
+            <li><a href="#map-discovery">Live Spatial Map</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-col">
+          <h5>For Enterprises</h5>
+          <ul>
+            <li><a href="javascript:void(0)" id="footerAddListingLink">Add Your Business</a></li>
+            <li><a href="javascript:void(0)" id="footerClaimBusinessLink">Claim Existing Listing</a></li>
+            <li><a href="javascript:void(0)" id="footerOwnerPortalLink">Business Owner Suite</a></li>
+            <li><a href="javascript:void(0)" id="footerAdvertiseLink">Sponsorship & Ads</a></li>
+            <li><a href="javascript:void(0)" id="footerGuidelinesLink">Verification Standards</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-newsletter-col">
+          <h5>Directory Newsletter</h5>
+          <p>Subscribe to receive curated top-rated spots, seasonal vouchers, and local market reports directly in your inbox.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Enter your business email" required>
+            <button type="submit" class="btn btn-gold btn-sm">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 NEXORA Directory Platform. Built for commercial enterprises and modern consumers.</p>
+        <div class="footer-bottom-links">
+          <a href="javascript:void(0)" id="linkPrivacy">Privacy Policy</a>
+          <span class="dot-sep">•</span>
+          <a href="javascript:void(0)" id="linkTerms">Terms of Service</a>
+          <span class="dot-sep">•</span>
+          <a href="javascript:void(0)" id="linkSupport">Support Center</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================================= -->
+  <!-- MODALS & DRAWERS (SELF-CONTAINED IN ROOT) -->
+  <!-- ================================================================= -->
+
+  <!-- 1. BUSINESS PROFILE MODAL (FULL EXPERIENCE) -->
+  <div class="modal-backdrop" id="businessProfileModalBackdrop">
+    <div class="modal-dialog modal-xl" id="businessProfileModal" role="dialog" aria-modal="true">
+      <button class="modal-close-btn" id="closeProfileModalBtn" aria-label="Close Profile">&times;</button>
+      <div class="profile-modal-body" id="profileModalContent">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. ADD YOUR BUSINESS MODAL -->
+  <div class="modal-backdrop" id="addBusinessModalBackdrop">
+    <div class="modal-dialog modal-lg" id="addBusinessModal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">List Your Enterprise on Nexora</h3>
+          <p class="modal-subtitle">Submit your company to join our verified commercial directory</p>
+        </div>
+        <button class="modal-close-btn" id="closeAddBusinessModalBtn">&times;</button>
+      </div>
+      <form class="modal-form" id="addBusinessForm">
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="bizNameInput">Business Name *</label>
+            <input type="text" id="bizNameInput" class="form-input" placeholder="e.g. Apex Cloud Solutions" required>
+          </div>
+          <div class="form-group">
+            <label for="bizCategoryInput">Primary Category *</label>
+            <select id="bizCategoryInput" class="form-select" required>
+              <option value="Restaurants">Restaurants & Dining</option>
+              <option value="Technology">Technology & Software</option>
+              <option value="Healthcare">Healthcare & Clinics</option>
+              <option value="Hotels">Hotels & Hospitality</option>
+              <option value="Shopping">Shopping & Retail</option>
+              <option value="Automotive">Automotive</option>
+              <option value="Real Estate">Real Estate</option>
+              <option value="Beauty & Wellness">Beauty & Wellness</option>
+              <option value="Professional Services">Professional & Legal</option>
+              <option value="Home Services">Home Services & Solar</option>
+              <option value="Education">Education & Training</option>
+              <option value="Finance">Finance & Banking</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="bizDescriptionInput">Executive Summary / Description *</label>
+          <textarea id="bizDescriptionInput" class="form-textarea" rows="3" placeholder="Describe your business, specialty services, and customer value proposition..." required></textarea>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label for="bizCityInput">City *</label>
+            <select id="bizCityInput" class="form-select" required>
+              <option value="Peshawar">Peshawar</option>
+              <option value="Islamabad">Islamabad</option>
+              <option value="Lahore">Lahore</option>
+              <option value="Karachi">Karachi</option>
+              <option value="Dubai">Dubai</option>
+              <option value="London">London</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="bizAddressInput">Physical Address / Street *</label>
+            <input type="text" id="bizAddressInput" class="form-input" placeholder="e.g. University Road, Phase 3" required>
+          </div>
+          <div class="form-group">
+            <label for="bizPriceInput">Price Tier *</label>
+            <select id="bizPriceInput" class="form-select" required>
+              <option value="$">$ (Budget Friendly)</option>
+              <option value="$$" selected>$$ (Moderate)</option>
+              <option value="$$$">$$$ (Upscale)</option>
+              <option value="$$$$">$$$$ (Executive Luxury)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label for="bizPhoneInput">Phone Contact *</label>
+            <input type="tel" id="bizPhoneInput" class="form-input" placeholder="+92 300 1234567" required>
+          </div>
+          <div class="form-group">
+            <label for="bizEmailInput">Business Email *</label>
+            <input type="email" id="bizEmailInput" class="form-input" placeholder="contact@company.com" required>
+          </div>
+          <div class="form-group">
+            <label for="bizWebsiteInput">Website URL</label>
+            <input type="text" id="bizWebsiteInput" class="form-input" placeholder="https://company.com">
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="bizHoursInput">Operating Hours</label>
+            <input type="text" id="bizHoursInput" class="form-input" placeholder="e.g. 09:00 AM - 10:00 PM" value="09:00 AM - 10:00 PM">
+          </div>
+          <div class="form-group">
+            <label for="bizServicesInput">Key Services (comma separated)</label>
+            <input type="text" id="bizServicesInput" class="form-input" placeholder="e.g. Web Development, Cloud Consulting, DevOps">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Cover Visual Theme</label>
+          <div class="visual-style-picker" id="bizCoverStylePicker">
+            <label class="visual-option active">
+              <input type="radio" name="bizCoverPreset" value="emerald" checked>
+              <span class="swatch swatch-emerald"></span>
+              <span>Emerald Luxe</span>
+            </label>
+            <label class="visual-option">
+              <input type="radio" name="bizCoverPreset" value="gold">
+              <span class="swatch swatch-gold"></span>
+              <span>Royal Gold</span>
+            </label>
+            <label class="visual-option">
+              <input type="radio" name="bizCoverPreset" value="sapphire">
+              <span class="swatch swatch-sapphire"></span>
+              <span>Tech Sapphire</span>
+            </label>
+            <label class="visual-option">
+              <input type="radio" name="bizCoverPreset" value="ruby">
+              <span class="swatch swatch-ruby"></span>
+              <span>Dining Ruby</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelAddBizBtn">Cancel</button>
+          <button type="submit" class="btn btn-gold" id="submitAddBizBtn">Submit Enterprise Listing</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 3. WRITE REVIEW MODAL -->
+  <div class="modal-backdrop" id="reviewModalBackdrop">
+    <div class="modal-dialog modal-md" id="reviewModal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Write a Review</h3>
+          <p class="modal-subtitle" id="reviewModalBizName">Share your experience with this enterprise</p>
+        </div>
+        <button class="modal-close-btn" id="closeReviewModalBtn">&times;</button>
+      </div>
+      <form class="modal-form" id="writeReviewForm">
+        <input type="hidden" id="reviewTargetBizId" value="">
+        <div class="form-group rating-select-group">
+          <label>Overall Experience Rating *</label>
+          <div class="star-rating-picker" id="starRatingPicker">
+            <span class="star-btn" data-star="1">★</span>
+            <span class="star-btn" data-star="2">★</span>
+            <span class="star-btn" data-star="3">★</span>
+            <span class="star-btn" data-star="4">★</span>
+            <span class="star-btn active" data-star="5">★</span>
+          </div>
+          <span class="rating-label-display" id="ratingLabelDisplay">5.0 - Outstanding Experience</span>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewerNameInput">Your Name *</label>
+          <input type="text" id="reviewerNameInput" class="form-input" placeholder="e.g. Asfand Yar" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewTitleInput">Review Headline *</label>
+          <input type="text" id="reviewTitleInput" class="form-input" placeholder="e.g. Exceptional service and impeccable quality" required>
+        </div>
+
+        <div class="form-group">
+          <label for="reviewTextInput">Detailed Feedback *</label>
+          <textarea id="reviewTextInput" class="form-textarea" rows="4" placeholder="Describe the professionalism, timeliness, pricing, and overall satisfaction..." required></textarea>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelReviewBtn">Cancel</button>
+          <button type="submit" class="btn btn-gold" id="submitReviewBtn">Publish Review</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 4. BUSINESS COMPARISON MODAL -->
+  <div class="modal-backdrop" id="compareModalBackdrop">
+    <div class="modal-dialog modal-xl" id="compareModal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Business Comparison Matrix</h3>
+          <p class="modal-subtitle">Side-by-side evaluation of ratings, services, price tiers, and contact options</p>
+        </div>
+        <button class="modal-close-btn" id="closeCompareModalBtn">&times;</button>
+      </div>
+      <div class="comparison-scroll-wrapper" id="comparisonTableWrapper">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. GLOBAL SEARCH SPOTLIGHT MODAL (⌘K) -->
+  <div class="modal-backdrop" id="globalSearchModalBackdrop">
+    <div class="spotlight-dialog" id="globalSearchDialog" role="dialog" aria-modal="true">
+      <div class="spotlight-search-bar">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="spotlightInput" placeholder="Search businesses, locations, services, or categories... (Press ESC to exit)" autocomplete="off">
+        <button class="spotlight-clear-btn" id="spotlightClearBtn">&times;</button>
+      </div>
+      <div class="spotlight-results" id="spotlightResultsList">
+        <!-- Injected dynamically based on input -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. AUTH LOGIN / SIGN UP MODAL -->
+  <div class="modal-backdrop" id="authModalBackdrop">
+    <div class="modal-dialog modal-md" id="authModal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title" id="authModalTitle">Sign in to Nexora</h3>
+          <p class="modal-subtitle">Access your member favorites, reviews, and business analytics</p>
+        </div>
+        <button class="modal-close-btn" id="closeAuthModalBtn">&times;</button>
+      </div>
+
+      <!-- Tab Switcher (Login / Signup) -->
+      <div class="auth-tabs">
+        <button class="auth-tab-btn active" id="tabAuthLogin">Sign In</button>
+        <button class="auth-tab-btn" id="tabAuthSignup">Create Account</button>
+      </div>
+
+      <form class="modal-form" id="authForm">
+        <div class="form-group" id="signupNameGroup" style="display: none;">
+          <label for="authNameInput">Full Name</label>
+          <input type="text" id="authNameInput" class="form-input" placeholder="e.g. Tariq Khan">
+        </div>
+
+        <div class="form-group">
+          <label for="authEmailInput">Email Address</label>
+          <input type="email" id="authEmailInput" class="form-input" placeholder="name@company.com" required value="owner@nexora.com">
+        </div>
+
+        <div class="form-group">
+          <label for="authPasswordInput">Password</label>
+          <input type="password" id="authPasswordInput" class="form-input" placeholder="••••••••" required value="nexora2026">
+        </div>
+
+        <div class="form-group" id="accountTypeGroup" style="display: none;">
+          <label>Account Role</label>
+          <div class="role-selector">
+            <label class="role-pill active">
+              <input type="radio" name="accountRole" value="owner" checked>
+              <span>Business Owner</span>
+            </label>
+            <label class="role-pill">
+              <input type="radio" name="accountRole" value="customer">
+              <span>Customer / Member</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="flex-between auth-extra-row">
+          <label class="checkbox-label">
+            <input type="checkbox" id="rememberMeCheckbox" checked>
+            <span>Remember me</span>
+          </label>
+          <a href="javascript:void(0)" class="link-gold" id="forgotPassLink">Forgot password?</a>
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-gold btn-block" id="authSubmitBtn">Sign In</button>
+        </div>
+
+        <div class="quick-demo-login-box">
+          <span>Quick Demo Roles:</span>
+          <div class="demo-buttons-row">
+            <button type="button" class="btn btn-outline btn-xs" id="demoOwnerBtn">Owner Demo</button>
+            <button type="button" class="btn btn-outline btn-xs" id="demoCustomerBtn">Customer Demo</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- 7. MESSAGES & INQUIRIES DRAWER -->
+  <div class="drawer-backdrop" id="messagesDrawerBackdrop">
+    <div class="sliding-drawer messages-drawer" id="messagesDrawer">
+      <div class="drawer-header">
+        <div class="flex-center gap-sm">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <h4>Messages & Inquiries</h4>
+        </div>
+        <button class="drawer-close-btn" id="closeMessagesDrawerBtn">&times;</button>
+      </div>
+
+      <div class="messenger-container">
+        <!-- Conversations List -->
+        <div class="conversation-sidebar" id="conversationList">
+          <!-- Injected via script -->
+        </div>
+
+        <!-- Active Chat Window -->
+        <div class="chat-viewport">
+          <div class="chat-header" id="activeChatHeader">
+            <div class="chat-avatar" id="activeChatAvatar">A</div>
+            <div>
+              <div class="chat-name" id="activeChatName">Apex Cloud Solutions</div>
+              <div class="chat-status"><span class="status-dot online"></span> Online • Response in &lt;10m</div>
+            </div>
+          </div>
+
+          <div class="chat-messages-body" id="chatMessagesBody">
+            <!-- Injected chat bubbles -->
+          </div>
+
+          <form class="chat-input-bar" id="chatSendMessageForm">
+            <input type="text" id="chatMessageInput" placeholder="Type an inquiry or question..." autocomplete="off" required>
+            <button type="submit" class="btn btn-gold btn-send" aria-label="Send Message">
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 8. SAVED FAVORITES DRAWER -->
+  <div class="drawer-backdrop" id="favoritesDrawerBackdrop">
+    <div class="sliding-drawer favorites-drawer" id="favoritesDrawer">
+      <div class="drawer-header">
+        <div class="flex-center gap-sm">
+          <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+          <h4>My Saved Businesses</h4>
+        </div>
+        <button class="drawer-close-btn" id="closeFavoritesDrawerBtn">&times;</button>
+      </div>
+      <div class="favorites-drawer-body" id="favoritesDrawerBody">
+        <!-- Injected via script -->
+      </div>
+      <div class="favorites-drawer-footer">
+        <button class="btn btn-outline btn-block" id="favExploreMoreBtn">Discover More Businesses</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 9. SHARE BUSINESS MODAL -->
+  <div class="modal-backdrop" id="shareModalBackdrop">
+    <div class="modal-dialog modal-sm" id="shareModal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h4 class="modal-title">Share Business</h4>
+        <button class="modal-close-btn" id="closeShareModalBtn">&times;</button>
+      </div>
+      <div class="share-modal-body">
+        <p id="shareBizNameText">Share this verified listing with your colleagues and friends:</p>
+        <div class="share-link-box">
+          <input type="text" id="shareLinkInput" readonly value="https://nexora.directory/biz/apex-cloud">
+          <button class="btn btn-gold btn-sm" id="copyShareLinkBtn">Copy</button>
+        </div>
+        <div class="social-share-buttons">
+          <button class="share-btn whatsapp" id="shareWhatsAppBtn">WhatsApp</button>
+          <button class="share-btn twitter" id="shareTwitterBtn">X (Twitter)</button>
+          <button class="share-btn linkedin" id="shareLinkedInBtn">LinkedIn</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 10. POST OFFER MODAL -->
+  <div class="modal-backdrop" id="postOfferModalBackdrop">
+    <div class="modal-dialog modal-md" id="postOfferModal" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <div>
+          <h3 class="modal-title">Create Promotional Offer</h3>
+          <p class="modal-subtitle">Publish a seasonal discount or voucher code to attract new customers</p>
+        </div>
+        <button class="modal-close-btn" id="closePostOfferModalBtn">&times;</button>
+      </div>
+      <form class="modal-form" id="postOfferForm">
+        <div class="form-group">
+          <label for="offerTitleInput">Offer Title *</label>
+          <input type="text" id="offerTitleInput" class="form-input" placeholder="e.g. 25% Off Executive Consultation" required>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="offerBizSelect">Business *</label>
+            <select id="offerBizSelect" class="form-select" required>
+              <!-- Filled with available businesses -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="offerDiscountInput">Discount Value *</label>
+            <input type="text" id="offerDiscountInput" class="form-input" placeholder="e.g. 25% OFF / Flat Rs. 1000" required>
+          </div>
+        </div>
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label for="offerCodeInput">Voucher Code *</label>
+            <input type="text" id="offerCodeInput" class="form-input" placeholder="e.g. NEXORA25" required>
+          </div>
+          <div class="form-group">
+            <label for="offerExpiryInput">Valid Until *</label>
+            <input type="date" id="offerExpiryInput" class="form-input" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="offerTermsInput">Terms & Conditions</label>
+          <input type="text" id="offerTermsInput" class="form-input" placeholder="Valid for first-time clients on booking above $50">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" id="cancelOfferBtn">Cancel</button>
+          <button type="submit" class="btn btn-gold" id="submitOfferBtn">Publish Offer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- FLOATING TOAST NOTIFICATIONS CONTAINER -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- DIRECT SCRIPT AT ROOT -->
+  <script src="script.js"></script>
+</body>
+</html>
